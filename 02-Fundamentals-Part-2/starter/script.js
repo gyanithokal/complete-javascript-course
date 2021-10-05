@@ -516,6 +516,7 @@ for(let i = 0; i < jonas.length; i++){
 
 */
 
+/*
 // looping backwards and Loops in loop
 
 const jonas = [
@@ -544,3 +545,58 @@ for(let exercise = 1; exercise < 4; exercise++){
         console.log(`Lifting weight repetition ${rep}`);
     }
 }
+*/
+
+// While Loop
+
+/*
+for(let rep = 1; rep <= 10; rep++){
+    console.log(`Lifting weight repetition ${rep}`);
+}
+
+let rep = 1;
+while(rep <= 10) {
+    console.log(`While: Lifting weight repetition ${rep}`);
+    rep++;
+}
+*/
+
+// dice
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+//console.log(dice);
+
+while(dice !== 6) {
+    console.log(`you rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if(dice === 6){
+        console.log(`Loop is about to end....`);
+    }
+}
+
+////////////////////////////////////
+// Coding Challenge #4
+
+const calcTip = function(billValue){
+    return billValue >= 50 && billValue <= 300 ? billValue * 0.15 : billValue * 0.2;
+}
+
+const bills = [22,296,176,440,37,105,10,1100,86,52];
+const tips = [];
+const totals = [];
+
+for ( let i = 0; i < bills.length; i++){
+    const tip = calcTip(bills[i]);
+    tips.push(tip);
+    totals.push(tip + bills[i]);
+    //const totalValue = billValues[i] + tips[i];
+    //totals.push(totalValue);
+    // for (let y = 0; y < tips.length; y++){
+    //     //console.log(tips);
+    //     const totalValues = billValues[y] + tips[y];
+    //     totals.push(totalValues);
+    // }
+    
+}
+
+console.log(tips, totals);

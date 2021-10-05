@@ -7,6 +7,7 @@ LECTURE: Functions
 2. Callthisfunction3times,withinputdatafor3differentcountries.Storethe returned values in 3 different variables, and log them to the console
 */
 
+/*
 function describeCountry(country, population, capitalCity){
     //console.log(country, population, capitalCity);
     const describe1 = `${country} has ${population} million people and its capital city is ${capitalCity}`;
@@ -23,7 +24,7 @@ console.log(describeData2);
 
 const describeData3 = describeCountry('Canada', 140, 'Ottawa');
 console.log(describeData3);
-
+*/
 
 // Function Declarations vs. Expressions
 /*
@@ -69,12 +70,16 @@ const percentagePopulation8 = percentageOfWorld1('1441');
 const percentagePopulation9 = percentageOfWorld1('332');
 console.log(percentagePopulation7, percentagePopulation8, percentagePopulation9);
 
-// LECTURE: Functions Calling Other Functions
+
 /*
+// LECTURE: Functions Calling Other Functions
+
 1. Createafunctioncalled'describePopulation'.Usethefunctiontypeyou like the most. This function takes in two arguments: 'country' and 'population', and returns a string like this: 'China has 1441 million people, which is about 18.2% of the world.'
 2. Tocalculatethepercentage,'describePopulation'callthe 'percentageOfWorld1' you created earlier
 3. Call'describePopulation'withdatafor3countriesofyourchoice
 */
+
+/*
 
 function describePopulation(country, population){
     const describePercentage = percentageOfWorld1(population);
@@ -85,6 +90,7 @@ function describePopulation(country, population){
 console.log(describePopulation('India', 1390));
 console.log(describePopulation('China', 1441));
 console.log(describePopulation('USA', 332));
+*/
 
 
 // LECTURE: Introduction to Arrays
@@ -94,13 +100,13 @@ console.log(describePopulation('USA', 332));
 3. Createanarraycalled'percentages'containingthepercentagesofthe
 world population for these 4 population values. Use the function 'percentageOfWorld1' that you created earlier to compute the 4 percentage values
 */
-
+/*
 const populations = [1390, 1441, 332, 30];
 console.log(populations);
 
 const percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[3])];
 console.log(percentages);
-
+*/
 
 // LECTURE: Basic Array Operations (Methods)
 /*
@@ -110,6 +116,8 @@ console.log(percentages);
 4. Ifthe'neighbours'arraydoesnotincludethecountry‘Germany’,logtothe console: 'Probably not a central European country :D'
 5. Changethenameofoneofyourneighbouringcountries.Todothat,findthe index of the country in the 'neighbours' array, and then use that index to change the array at that index position. For example, you can search for 'Sweden' in the array, and then replace it with 'Republic of Sweden'.
 */
+
+/*
 
 const neighbours = ['Srilanka', 'Nepal', 'UAE'];
 console.log(neighbours);
@@ -126,7 +134,7 @@ if(!neighbours.includes('Germany')){
 
 neighbours[neighbours.indexOf('UAE')] = 'Republic of UAE';
 console.log(neighbours);
-
+*/
 
 /*
 LECTURE: Introduction to Objects
@@ -134,6 +142,7 @@ LECTURE: Introduction to Objects
 
 */
 
+/*
 const myCountry = {
     country: 'India',
     capital: 'Delhi',
@@ -141,7 +150,7 @@ const myCountry = {
     population: 1390,
     neighbours: ['Nepal', 'SriLanka', 'UAE'],
 };
-
+*/
 
 /*
 LECTURE: Dot vs. Bracket Notation
@@ -149,6 +158,8 @@ LECTURE: Dot vs. Bracket Notation
 2. Increasethecountry'spopulationbytwomillionusingdotnotation,andthen decrease it by two million using brackets notation.
 
 */
+
+/*
 
 console.log(myCountry);
 console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}.`);
@@ -161,7 +172,7 @@ console.log(myCountry.population);
 
 myCountry.population -= 2;
 console.log(myCountry.population);
-
+*/
 
 /*
 LECTURE: Object Methods
@@ -180,7 +191,7 @@ method will set a new property on the object, called 'isIsland'. 'isIsland' will
 
 
 //console.log(myCountry.describe());
-
+/*
 const myCountry2 = {
     country: 'India',
     capital: 'Delhi',
@@ -207,3 +218,57 @@ const myCountry2 = {
 myCountry2.getDesc();
 myCountry2.checkIsland();
 console.log(myCountry2);
+*/
+/*
+LECTURE: Iteration: The for Loop
+1. Thereareelectionsinyourcountry!Inasmalltown,thereareonly50voters. Use a for loop to simulate the 50 people voting, by logging a string like this to the console (for numbers 1 to 50): 'Voter number 1 is currently voting'
+*/
+
+for( let i = 1; i <= 50; i++){
+    console.log(`Voter number ${i} is currently voting`);
+}
+
+/*
+LECTURE: Looping Arrays, Breaking and Continuing
+1. Let'sbringbackthe'populations'arrayfromapreviousassignment
+2. Useaforlooptocomputeanarraycalled'percentages2'containingthe
+percentages of the world population for the 4 population values. Use the
+function 'percentageOfWorld1' that you created earlier
+3. Confirmthat'percentages2'containsexactlythesamevaluesasthe
+'percentages' array that we created manually in the previous assignment, and reflect on how much better this solution is
+*/
+
+const populations = [1390, 1441, 332, 30];
+const percentages2 = [];
+
+for (let i = 0; i < populations.length; i++){
+        const perc = percentageOfWorld1(populations[i]);
+        percentages2.push(perc);
+}
+   
+console.log(percentages2);
+
+/**
+LECTURE: Looping Backwards and Loops in Loops
+1. Storethisarrayofarraysintoavariablecalled'listOfNeighbours' [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden', 'Russia']];
+2. Logonlytheneighbouringcountriestotheconsole,onebyone,nottheentire arrays. Log a string like 'Neighbour: Canada' for each country
+3. Youwillneedaloopinsidealoopforthis.Thisisactuallyabittricky,sodon't worry if it's too difficult for you! But you can still try to figure this out anyway 😉
+
+*/
+
+const listOfNeighbours = [
+    ['Canada', 'Mexico'], 
+    ['Spain'], 
+    ['Norway', 'Sweden', 'Russia']
+];
+
+for (let i = 0; i < listOfNeighbours.length; i++){
+    console.log(`${listOfNeighbours[i].length}, ${i}`);
+    
+    for(let y = 0; y < listOfNeighbours[i].length; y++){
+        console.log(`Neighbour: ${listOfNeighbours[i][y]}`);
+    }
+    //     console.log(`Neighbour: ${listOfNeighbours[y]}`);
+    // }
+    // console.log(`Neighbour: ${listOfNeighbours[i].length}`);
+}
